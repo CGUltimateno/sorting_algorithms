@@ -39,6 +39,22 @@ void sort_partition(int *array, int low, int high, int size)
 }
 
 /**
+ * swap - swaps two elements in an array
+ * @array: array to be sorted
+ * @first_index: first index
+ * @second_index: second index
+ */
+
+void swap(int **array, int first_index, int second_index)
+{
+    int temp = 0;
+
+    temp = (*array)[first_index];
+    (*array)[first_index] = (*array)[second_index];
+    (*array)[second_index] = temp;
+}
+
+/**
  * get_pivot - sorts an array of integers in ascending order
  * using the Quick sort algorithm
  * @array: array to be sorted
@@ -72,20 +88,4 @@ int get_pivot(int *array, size_t size, int first, int last)
         print_array(array, size);
     }
     return (i + 1);
-}
-
-/**
- * swap - swaps two elements in an array
- * @array: array to be sorted
- * @first_index: first index
- * @second_index: second index
- */
-
-void swap(int **array, int first_index, int second_index)
-{
-    int temp = 0;
-
-    temp = (*array)[first_index];
-    (*array)[first_index] = (*array)[second_index];
-    (*array)[second_index] = temp;
 }
