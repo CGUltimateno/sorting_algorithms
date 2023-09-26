@@ -24,6 +24,6 @@ void swap(int **array, int first_index, int second_index);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 int get_pivot(int *array, size_t size, int first, int last);
-void sort_partition(int *array, int low, int high, int size);
+void sort_partition(int *array, int size, int first, int last);
 
 #endif

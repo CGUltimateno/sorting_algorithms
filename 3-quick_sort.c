@@ -11,7 +11,7 @@ void quick_sort(int *array, size_t size)
 {
     if (array == NULL || size < 2)
         return;
-    sort_partition(array,0 , size - 1,  size);
+    sort_partition(array, size, 0, size - 1);
 }
 
 /**
@@ -23,18 +23,18 @@ void quick_sort(int *array, size_t size)
  * @size: size of the array
  */
 
-void sort_partition(int *array, int low, int high, int size)
+void sort_partition(int *array, int size, int first, int last)
 {
     int pivot = 0;
 
-    if (low < high)
+    if (first < last)
     {
-        pivot = get_pivot(array, low, high, size);
-        if (pivot - low > 1)
-            sort_partition(array, low, pivot - 1, size);
+        pivot = get_pivot(array, size, first, last);
+        if (pivot - first > 1)
+            sort_partition(array, size, first, pivot - 1);
 
-        if (high - pivot > 1)
-            sort_partition(array, pivot + 1, high, size);
+        if (last - pivot > 1)
+            sort_partition(array, size, pivot + 1, last);
     }
 }
 
