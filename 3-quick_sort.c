@@ -23,7 +23,7 @@ void quick_sort(int *array, size_t size)
  * @size: size of the array
  */
 
-void sort_partition(int *array, int low, int high, size_t size)
+void sort_partition(int *array, int low, int high, int size)
 {
     int pivot = 0;
 
