@@ -5,6 +5,7 @@
  * using the Quick sort algorithm
  * @array: array to be sorted
  * @size: size of the array
+ * Return: void
  */
 
 void quick_sort(int *array, size_t size)
@@ -18,9 +19,10 @@ void quick_sort(int *array, size_t size)
  * sort_partition - sorts an array of integers in ascending order
  * using the Quick sort algorithm
  * @array: array to be sorted
- * @low: low index
- * @high: high index
  * @size: size of the array
+ * @first: first index
+ * @last: last index
+ * Return: pivot index
  */
 
 void sort_partition(int *array, int size, int first, int last)
@@ -58,37 +60,37 @@ void swap(int **array, int first_index, int second_index)
  * get_pivot - sorts an array of integers in ascending order
  * using the Quick sort algorithm
  * @array: array to be sorted
- * @low: low index
- * @high: high index
  * @size: size of the array
+ * @first: first index
+ * @last: last index
  * Return: pivot index
  */
 
 int get_pivot(int *array, size_t size, int first, int last)
 {
     int pivot = 0;
-    int left = 0, new_pivot = 0;
+    int f = 0, new = 0;
 
     pivot = last;
-    left = first;
-    new_pivot = first - 1;
+    f = first;
+    new = first - 1;
 
-    for (; left < last; left++)
+    for (; f < last; f++)
     {
-        if (array[left] <= array[pivot])
+        if (array[f] <= array[pivot])
         {
-            new_pivot++;
-            if (new_pivot != left)
+            new++;
+            if (new != f)
             {
-                swap(&array, new_pivot, left);
+                swap(&array, new, f);
                 print_array(array, size);
             }
         }
     }
-    if ((new_pivot + 1) != last)
+    if ((new + 1) != last)
     {
-        swap(&array, new_pivot + 1, last);
+        swap(&array, new + 1, last);
         print_array(array, size);
     }
-    return (new_pivot + 1);
+    return (new + 1);
 }
