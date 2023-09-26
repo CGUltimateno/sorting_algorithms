@@ -67,29 +67,28 @@ void swap(int **array, int first_index, int second_index)
 int get_pivot(int *array, size_t size, int first, int last)
 {
     int pivot = 0;
-    int f = 0;
-    int new = 0;
+    int left = 0, new_pivot = 0;
 
     pivot = last;
-    f = first;
-    new = first - 1;
+    left = first;
+    new_pivot = first - 1;
 
-    for (; f <= last; f++)
+    for (; left < last; left++)
     {
-        if (array[f] <= array[pivot])
+        if (array[left] <= array[pivot])
         {
-            new++;
-            if (new != f)
+            new_pivot++;
+            if (new_pivot != left)
             {
-                swap(&array, new, f);
+                swap(&array, new_pivot, left);
                 print_array(array, size);
             }
         }
     }
-    if(new + 1 != last)
+    if ((new_pivot + 1) != last)
     {
-        swap(&array, new + 1, last);
+        swap(&array, new_pivot + 1, last);
         print_array(array, size);
     }
-    return (new + 1);
+    return (new_pivot + 1);
 }
