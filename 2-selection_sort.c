@@ -17,7 +17,7 @@ void selection_sort(int *array, size_t size)
         return;
 
     pass_required = size - 1;
-    for (size_t i = 0; i < size; i++)
+    for (pass = 0; pass < pass_required; pass++)
     {
         min_size = pass;
         for (index = pass + 1; index < size; index++)
